@@ -1,56 +1,50 @@
-import React from 'react';
-import '../../styles/styles.css';
+import React, {useState , useEffect} from 'react'
+import axios from 'axios'
+//attempt to import the styles
 
+
+
+//the below is information that is needed to full data from the movie db API
 const api_url =
   'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=6035714427d8af477272a1cfd680cfd6';
+const image_path = 'https://image.tmdb.org/t/p/w1280';
+const search_url =
+  'https://api.themoviedb.org/3/search/movie?api_key=6035714427d8af477272a1cfd680cfd6&query="';
 
-class Body extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      isLoaded: false,
-    };
+
+//the above searc url will be used for the search function 
+
+
+  function Body() {
+    const [movies, setMovies] = useState([]);
+  
+    useEffect(() => {
+      axios
+        .get(api_url)
+        .then(res => {
+          setMovies(res.data.results);
+        })
+        .catch((error) => console.log(error, "Error , please fix!"));
+    }, []);
+  
+    return (
+      <div className="movie_container">
+        
+        {movies.map((movie, i) => {
+          return (
+            <h2>
+              <img
+                src={image_path + movie.poster_path}
+                alt="This is a movie"
+                className="movie_here"
+                key={i}
+              />
+              {movie.title}
+            </h2>
+          );
+        })}
+      </div>
+    );
   }
-
-  componentDidMount() {
-    fetch(api_url)
-      .then((res) => res.json)
-      .then((json) => {
-        this.setState({
-          isLoaded: true,
-          items: json,
-        });
-      });
-  }
-
-  render() {
-    var { items, isLoaded } = this.state;
-    const image_path = 'https://image.tmdb.org/t/p/w1280';
-
-    if (!isLoaded) {
-      return <div>Loading</div>;
-    } else {
-      return (
-        <>
-          <div className="app">
-            {items.map((item) => (
-              <div className="movie">
-                <img src={image_path + item.poster_path} alt={item.title} />
-                <div class="movie-info">
-                  <h3>${item.title}</h3>
-                  {/* <span class="${getClassByrate(vote_average)}">${vote_average}</span> */}
-                </div>
-                <div class="overview">
-                  <h3>${item.overview}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
-      );
-    }
-  }
-}
-
-export default Body;
+  
+  export default Body;
