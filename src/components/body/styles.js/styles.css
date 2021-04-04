@@ -104,6 +104,10 @@ main {
   transition: 0.4s ease-in;
 }
 
+.overview h3 {
+  color: #7b0f8a;
+}
+
 .movie:hover .overview {
   transform: translateY(0);
 }
