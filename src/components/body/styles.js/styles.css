@@ -25,28 +25,23 @@ header {
   justify-content: flex-end;
 }
 
-.search {
-  background-color: transparent;
-  border: 2px solid var(--outline-color);
-  border-radius: 50px;
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  color: #fff;
-}
-
-.search::placeholder {
-  color: #b1d88a;
-}
-
-.search:focus {
-  outline: none;
-  background-color: var(--secondary-color);
-}
-
 main {
   display: flex;
   flex-wrap: wrap;
+}
+
+.navigation {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  padding: 20px 0;
+
+  box-shadow: 0 8px 6px -6px rgb(192, 182, 182);
 }
 
 .movie-container {

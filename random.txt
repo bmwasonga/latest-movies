@@ -1,0 +1,13 @@
+https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2021-3-22&api_key=6035714427d8af477272a1cfd680cfd6';
+
+
+  'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=6035714427d8af477272a1cfd680cfd6';
+
+
+https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10&api_key=6035714427d8af477272a1cfd680cfd6
+
+//best of drama
+https://api.themoviedb.org/3/discover/movie?with_genres=18&primary_release_year=2021&api_key=6035714427d8af477272a1cfd680cfd6
+
+//best of 2020
+https://api.themoviedb.org/3/discover/movie?primary_release_year=2020&sort_by=vote_average.desc&api_key=6035714427d8af477272a1cfd680cfd6
