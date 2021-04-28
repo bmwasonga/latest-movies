@@ -22,11 +22,12 @@ function General() {
   return (
     <div className="movie-container">
       {movies.map((movie, idx) => {
+        console.log(movies);
         const image_path = 'https://image.tmdb.org/t/p/w1280';
 
         return (
           <>
-            <div className="movie" id={movie.id}>
+            <div className="movie" key={movie.id}>
               <img src={image_path + movie.poster_path} alt={movie.title} />
               <div className="movie-info">
                 <h3> {movie.title}</h3>
